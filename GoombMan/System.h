@@ -11,10 +11,12 @@ namespace GoombMan {
         ~System();
         SDL_Renderer* get_ren() const;
         TTF_Font* get_font() const;
+        SDL_Surface* get_windowSurface const;
     private:
         SDL_Window* win;
         SDL_Renderer* ren;
         TTF_Font* font;
+        SDL_Surface* windowSurface;
     };
 extern System sys;
 }

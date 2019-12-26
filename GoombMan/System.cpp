@@ -1,5 +1,11 @@
 #include "System.h"
+#include <iostream>
+#ifdef APPLE
 #include <SDL2/SDL.h>
+#else
+#include <SDL.h>
+#include <SDL_image.h>
+#endif
 namespace GoombMan {
 
     System::System() {
@@ -8,15 +14,26 @@ namespace GoombMan {
         ren = SDL_CreateRenderer(win, -1, 0);
         TTF_Init();
         font = TTF_OpenFont("Roboto-Regular.ttf", 36);
-        
-        
-        //SDL_Surface* bgSurf = SDL_LoadBMP("pacmanbg.png");
-        //SDL_Texture* bgTxt = SDL_CreateTextureFromSurface(ren, bgSurf);
-        //SDL_FreeSurface(bgSurf);
-        
+
+        SDL_Surface* bgSurf = SDL_LoadBMP("lena.bmp");
+        windowSurface = SDL_GetWindowSurface(win);
+        SDL_Texture* bgTxt = SDL_CreateTextureFromSurface(ren, bgSurf);
+
+        if (NULL == bgSurf) {
+            std::cout << "SDL could not load image! SDL Error: " << SDL_GetError() << std::endl;
+        }
+
+        SDL_BlitSurface(bgSurf, NULL, windowSurface, NULL);
+
+        //Update the surface
+        SDL_UpdateWindowSurface(win);
+
+        SDL_FreeSurface(bgSurf);
+        SDL_Delay(5000);
+
         //Uint32 white = SDL_MapRGB(bgSurf->format, 255, 255, 255);
         //SDL_SetColorKey(bgSurf, true, white);
-    
+
     }
 
 
