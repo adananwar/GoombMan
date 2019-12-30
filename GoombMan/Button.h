@@ -1,7 +1,11 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 #include "Component.h"
+#ifdef APPLE
 #include <SDL2/SDL.h>
+#else
+#include <SDL.h>
+#endif
 #include <string>
 
 namespace GoombMan {
@@ -9,17 +13,19 @@ namespace GoombMan {
     {
     public:
         static Button* getInstance(int x, int y, int w, int h, std::string txt);
-        void mouseDown(const SDL_Event&);
-        void mouseUp(const SDL_Event&);
+        void keyDown(const SDL_Event&);
+        void keyUp(const SDL_Event&);
+        void keyRight(const SDL_Event&);
+        void keyLeft(const SDL_Event&);
         void draw() const;
         virtual void perform(Button* source) {}
-        ~Button();
-    protected:
         Button(int x, int y, int w, int h, std::string txt);
+        ~Button();
     private:
         std::string text;
-        SDL_Texture* texture;
-        SDL_Texture* kebabIcon, *downIcon;
+        SDL_Texture* goombTxt;
+        SDL_Texture* kebabIcon, * downIcon;
+        SDL_Rect goombRect;
         bool isDown = false;
     };
 }
