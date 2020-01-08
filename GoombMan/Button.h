@@ -21,6 +21,7 @@ namespace GoombMan {
         virtual void perform(Button* source) {}
         Button(int x, int y, int w, int h, std::string txt);
         ~Button();
+        SDL_Texture* bgTxt;
     private:
         std::string text;
         SDL_Texture* goombTxt;

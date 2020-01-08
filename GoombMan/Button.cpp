@@ -17,6 +17,10 @@ namespace GoombMan {
         //texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
         //SDL_FreeSurface(surf);
 
+        SDL_Surface* bgSurf = IMG_Load("GoombaTwoThree.png");
+        SDL_Texture* bgTxt = SDL_CreateTextureFromSurface(sys.get_ren(), bgSurf);
+        SDL_FreeSurface(bgSurf);
+
         SDL_Surface* goombSurf = IMG_Load("GoombaOne.png");
         SDL_Texture* goombTxt = SDL_CreateTextureFromSurface(sys.get_ren(), goombSurf);
         SDL_FreeSurface(goombSurf);
@@ -51,7 +55,9 @@ namespace GoombMan {
         rect.x -= 20;
     }
     void Button::draw() const {
+        SDL_RenderCopy(sys.get_ren(), bgTxt, NULL, NULL);
         SDL_RenderCopy(sys.get_ren(), kebabIcon, NULL, &getRect());
+        SDL_RenderPresent(sys.get_ren());
         //if (isDown)
           //  SDL_RenderCopy(sys.get_ren(), downIcon, NULL, &getRect());
         //else

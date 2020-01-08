@@ -1,42 +1,49 @@
 #include "Session.h"
+#ifdef APPLE
 #include <SDL2/SDL.h>
+#else
+#include <SDL.h>
+#include <iostream>
+#endif
 #include "System.h"
 namespace GoombMan {
 
     void Session::add(Component* c) {
-        // Vad gör denna?
         comps.push_back(c);
     }
 
     void Session::run() {
         bool quit = false;
         while (!quit) {
-            SDL_Event eve;
-            while (SDL_PollEvent(&eve)) {
-                switch (eve.type) {
+            SDL_Event event;
+            while (SDL_PollEvent(&event)) {
+                switch (event.type) {
                 case SDL_QUIT:
-                        quit = true;
-                        break;
-                case SDL_MOUSEBUTTONDOWN:
-                    for (Component* c : comps)
-                        c->mouseDown(eve);
-                    break;
-                case SDL_MOUSEBUTTONUP:
-                    for (Component* c : comps)
-                        c->mouseUp(eve);
+                    quit = true;
                     break;
                 case SDL_KEYDOWN:
-                    for (Component* c : comps)
-                        c->keyDown(eve);
-                    break;
-                case SDL_KEYUP:
-                    for (Component* c : comps)
-                        c->keyUp(eve);
-                    break;
-
+                    switch (event.key.keysym.sym) {
+                    case SDLK_UP:
+                        for (Component* c : comps)
+                            c->keyUp(event);
+                        break;
+                    case SDLK_DOWN:
+                        for (Component* c : comps)
+                            c->keyDown(event);
+                        break;
+                    case SDLK_LEFT:
+                        for (Component* c : comps)
+                            c->keyLeft(event);
+                        break;
+                    case SDLK_RIGHT:
+                        for (Component* c : comps)
+                            c->keyRight(event);
+                        break;
+                    }
                 } // switch
             } // inre while
-            SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
+            //SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
+
             SDL_RenderClear(sys.get_ren());
             for (Component* c : comps)
                 c->draw();
@@ -50,3 +57,4 @@ namespace GoombMan {
     {
     }
 }
+
