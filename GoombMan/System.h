@@ -1,7 +1,7 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
 
-#ifdef APPLE
+#ifdef __APPLE__
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #else

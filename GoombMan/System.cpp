@@ -1,6 +1,6 @@
 #include "System.h"
 #include <iostream>
-#ifdef APPLE
+#ifdef __APPLE__
 #include <SDL2/SDL.h>
 #else
 #include <SDL.h>

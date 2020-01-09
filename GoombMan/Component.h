@@ -1,3 +1,6 @@
+#ifndef COMPONENT_H
+#define COMPONENT_H
+#ifdef __APPLE__
 #include <SDL2/SDL.h>
 #else
 #include <SDL.h>

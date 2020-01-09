@@ -1,8 +1,9 @@
 #include "Button.h"
 #include "System.h"
-#ifdef APPLE
+#ifdef __APPLE__
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_image.h>
 #else
 #include <SDL.h>
 #include <iostream>
@@ -54,7 +55,7 @@ namespace GoombMan {
         rect.x -= 20;
     }
     void Button::draw() const {
-        SDL_RenderCopy(sys.get_ren(), bgTxt, NULL, NULL);
+        // SDL_RenderCopy(sys.get_ren(), bgTxt, NULL, NULL);
         SDL_RenderCopy(sys.get_ren(), kebabIcon, NULL, &getRect());
         SDL_RenderPresent(sys.get_ren());
         //if (isDown)

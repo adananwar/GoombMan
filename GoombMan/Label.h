@@ -2,11 +2,12 @@
 #define LABEL_H
 #include "Component.h"
 #include <string>
-#ifdef APPLE
+#ifdef __APPLE__
 #include <SDL2/SDL.h>
 #else
 #include <SDL.h>
 #endif
+
 namespace GoombMan {
 
     class Label : public Component

@@ -1,8 +1,13 @@
 #ifndef SESSION_H
 #define SESSION_H
 #include <vector>
-// Måste skapa en Component.h klass
 #include "Component.h"
+#ifdef __APPLE__
+#include <SDL2/SDL.h>
+#else
+#include <SDL.h>
+#endif
+
 namespace GoombMan {
     class Session {
     public:
