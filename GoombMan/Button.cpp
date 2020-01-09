@@ -12,7 +12,7 @@
 #endif
 namespace GoombMan {
 
-    Button::Button(int x, int y, int w, int h, std::string txt) :Component(x, y, w, h)
+    Button::Button(int x, int y, int w, int h) :Component(x, y, w, h)
     {
         //SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), { 0,0,0 });
         //texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
@@ -38,8 +38,8 @@ namespace GoombMan {
         SDL_DestroyTexture(downIcon);
     }
 
-    Button* Button::getInstance(int x, int y, int w, int h, std::string txt) {
-        return new Button(x, y, w, h, txt);
+    Button* Button::getInstance(int x, int y, int w, int h) {
+        return new Button(x, y, w, h);
     }
 
     void Button::keyDown(const SDL_Event& event) {

@@ -15,32 +15,17 @@ namespace GoombMan {
         TTF_Init();
         font = TTF_OpenFont("Roboto-Regular.ttf", 36);
 
-        SDL_Surface* bgSurf = SDL_LoadBMP("lena.bmp");
-        //windowSurf = SDL_GetWindowSurface(win);
-        SDL_Texture* bgTxt = SDL_CreateTextureFromSurface(ren, bgSurf);
-
-        SDL_SetRenderDrawColor(ren, 255, 0, 0, 255);
+       
+        SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
         SDL_RenderClear(ren);
         SDL_RenderPresent(ren);
-
-        if (NULL == bgSurf) {
-            std::cout << "SDL could not load image! SDL Error: " << SDL_GetError() << std::endl;
-        }
-
-        //SDL_BlitSurface(bgSurf, NULL, windowSurf, NULL);
 
         //Update the surface
         SDL_UpdateWindowSurface(win);
 
-        SDL_FreeSurface(bgSurf);
         SDL_Delay(300);
 
-        //Uint32 white = SDL_MapRGB(bgSurf->format, 255, 255, 255);
-        //SDL_SetColorKey(bgSurf, true, white);
-
     }
-
-
 
     System::~System() {
         TTF_CloseFont(font);
@@ -62,11 +47,9 @@ namespace GoombMan {
         return windowSurf;
     }
 
-
     SDL_Texture* System::get_bgTxt() const {
         return bgTxt;
     }
-    // What does this one do?
 
     System sys;
 }

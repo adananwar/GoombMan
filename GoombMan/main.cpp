@@ -16,7 +16,7 @@ int main(int argc, const char* argv[]) {
 
     class OkaKnapp : public Button {
     public:
-        OkaKnapp(Label* lbl) :Button(100, 100, 150, 150, "÷ka"), label(lbl) {}
+        OkaKnapp(Label* lbl) :Button(100, 100, 150, 150), label(lbl) {}
         void perform(Button* source) {
         }
     private:

@@ -12,18 +12,17 @@ namespace GoombMan {
     class Button : public Component
     {
     public:
-        static Button* getInstance(int x, int y, int w, int h, std::string txt);
+        static Button* getInstance(int x, int y, int w, int h);
         void keyDown(const SDL_Event&);
         void keyUp(const SDL_Event&);
         void keyRight(const SDL_Event&);
         void keyLeft(const SDL_Event&);
         void draw() const;
         virtual void perform(Button* source) {}
-        Button(int x, int y, int w, int h, std::string txt);
+        Button(int x, int y, int w, int h);
         ~Button();
         SDL_Texture* bgTxt;
     private:
-        std::string text;
         SDL_Texture* goombTxt;
         SDL_Texture* kebabIcon, * downIcon;
         SDL_Rect goombRect;
