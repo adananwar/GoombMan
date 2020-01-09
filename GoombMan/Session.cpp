@@ -44,6 +44,12 @@ namespace GoombMan {
             } // inre while
             //SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
 
+            for (Component* c : comps) {
+                SDL_bool collision = SDL_HasIntersection(c->getRect, );
+                if (collision) {
+                }
+            }
+
             SDL_RenderClear(sys.get_ren());
             for (Component* c : comps)
                 c->draw();

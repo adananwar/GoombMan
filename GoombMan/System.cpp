@@ -10,7 +10,7 @@ namespace GoombMan {
 
     System::System() {
         SDL_Init(SDL_INIT_EVERYTHING);
-        win = SDL_CreateWindow("KebabMan", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 600, 0);
+        win = SDL_CreateWindow("GoombMan", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 600, 0);
         ren = SDL_CreateRenderer(win, -1, 0);
         TTF_Init();
         font = TTF_OpenFont("Roboto-Regular.ttf", 36);

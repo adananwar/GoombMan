@@ -27,7 +27,6 @@ namespace GoombMan {
 
         kebabIcon = IMG_LoadTexture(sys.get_ren(), "GoombaOne.png");
         SDL_Rect goombRect = { 0, 0, 100, 100 };
-        // Down Icon may not be necessary, change to pacman instead?
         //downIcon = IMG_LoadTexture(sys.get_ren(), "GoombaTwoThree.png");
     }
 
