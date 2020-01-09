@@ -24,7 +24,7 @@ namespace GoombMan {
         SDL_Texture* bgTxt;
     private:
         SDL_Texture* goombTxt;
-        SDL_Texture* kebabIcon, * downIcon;
+        SDL_Texture* goomba, * downIcon;
         SDL_Rect goombRect;
         bool isDown = false;
     };

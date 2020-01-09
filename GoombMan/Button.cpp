@@ -14,19 +14,12 @@ namespace GoombMan {
 
     Button::Button(int x, int y, int w, int h) :Component(x, y, w, h)
     {
-        //SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), { 0,0,0 });
-        //texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
-        //SDL_FreeSurface(surf);
-
+        
         SDL_Surface* bgSurf = IMG_Load("GoombaTwoThree.png");
         SDL_Texture* bgTxt = SDL_CreateTextureFromSurface(sys.get_ren(), bgSurf);
         SDL_FreeSurface(bgSurf);
 
-        SDL_Surface* goombSurf = IMG_Load("GoombaOne.png");
-        SDL_Texture* goombTxt = SDL_CreateTextureFromSurface(sys.get_ren(), goombSurf);
-        SDL_FreeSurface(goombSurf);
-
-        kebabIcon = IMG_LoadTexture(sys.get_ren(), "GoombaOne.png");
+        goomba = IMG_LoadTexture(sys.get_ren(), "GoombaOne.png");
         SDL_Rect goombRect = { 0, 0, 100, 100 };
         //downIcon = IMG_LoadTexture(sys.get_ren(), "GoombaTwoThree.png");
     }
@@ -34,7 +27,7 @@ namespace GoombMan {
     Button::~Button()
     {
         SDL_DestroyTexture(goombTxt);
-        SDL_DestroyTexture(kebabIcon);
+        SDL_DestroyTexture(goomba);
         SDL_DestroyTexture(downIcon);
     }
 
@@ -56,12 +49,12 @@ namespace GoombMan {
     }
     void Button::draw() const {
         // SDL_RenderCopy(sys.get_ren(), bgTxt, NULL, NULL);
-        SDL_RenderCopy(sys.get_ren(), kebabIcon, NULL, &getRect());
+        SDL_RenderCopy(sys.get_ren(), goomba, NULL, &getRect());
         SDL_RenderPresent(sys.get_ren());
         //if (isDown)
           //  SDL_RenderCopy(sys.get_ren(), downIcon, NULL, &getRect());
         //else
-          //  SDL_RenderCopy(sys.get_ren(), kebabIcon, NULL, &getRect());
+          //  SDL_RenderCopy(sys.get_ren(), goomba, NULL, &getRect());
 
         SDL_RenderCopy(sys.get_ren(), goombTxt, NULL, &goombRect);
 
