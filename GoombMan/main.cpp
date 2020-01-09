@@ -25,8 +25,11 @@ int main(int argc, const char* argv[]) {
 
     // Lägg till knappen här
     Session ses;
-    Label* lbl = Label::getInstance(480, 0, 100, 70, "Score: 0");
+    Label* lbl = Label::getInstance(500, 15, 50, 50, "0");
     ses.add(lbl);
+    Label* lb2 = Label::getInstance(400, 0, 100, 70, "Score:");
+    ses.add(lb2);
+    //Label* lb2 = Label::getInstance(<#int x#>, <#int y#>, <#int w#>, <#int h#>, <#std::string txt#>)
     Button* b = new OkaKnapp(lbl);
     ses.add(b);
     ses.run();
