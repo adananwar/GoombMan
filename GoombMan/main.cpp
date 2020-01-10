@@ -16,7 +16,7 @@ int main(int argc, const char* argv[]) {
 
     class OkaKnapp : public Button {
     public:
-        OkaKnapp(Label* lbl) :Button(100, 100, 150, 150), label(lbl) {}
+        OkaKnapp(Label* lbl) :Button(100, 100, 50, 50), label(lbl) {}
         void perform(Button* source) {
         }
     private:
@@ -25,11 +25,10 @@ int main(int argc, const char* argv[]) {
 
     // Lägg till knappen här
     Session ses;
-    Label* lbl = Label::getInstance(500, 15, 50, 50, "0");
+    Label* lbl = Label::getInstance(485, 11, 33, 37, "0");
     ses.add(lbl);
-    Label* lb2 = Label::getInstance(400, 0, 100, 70, "Score:");
+    Label* lb2 = Label::getInstance(400, 0, 80, 50, "Score:");
     ses.add(lb2);
-    //Label* lb2 = Label::getInstance(<#int x#>, <#int y#>, <#int w#>, <#int h#>, <#std::string txt#>)
     Button* b = new OkaKnapp(lbl);
     ses.add(b);
     ses.run();
