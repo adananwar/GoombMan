@@ -16,14 +16,22 @@ int main(int argc, const char* argv[]) {
 
     class OkaKnapp : public Button {
     public:
-        OkaKnapp(Label* lbl) :Button(100, 100, 50, 50), label(lbl) {}
+        OkaKnapp(Label* lbl) :Button(200, 200, 50, 50), label(lbl) {}
         void perform(Button* source) {
         }
     private:
         Label* label;
     };
 
-    // Lägg till knappen här
+    class Rulle : public Kebab {
+    public:
+        Rulle(Label* lbl) :Kebab(350, 350, 40, 50), label(lbl) {}
+        void perform(Button* source) {
+        }
+    private:
+        Label* label;
+    };
+
     Session ses;
     Label* lbl = Label::getInstance(485, 11, 33, 37, "0");
     ses.add(lbl);
@@ -31,6 +39,7 @@ int main(int argc, const char* argv[]) {
     ses.add(lb2);
     Button* b = new OkaKnapp(lbl);
     ses.add(b);
+    ses.add(k);
     ses.run();
 
 
