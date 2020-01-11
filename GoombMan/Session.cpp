@@ -1,12 +1,11 @@
 #include "Session.h"
-#include "System.h"
-#include <iostream>
 #ifdef __APPLE__
 #include <SDL2/SDL.h>
 #else
 #include <SDL.h>
+#include <iostream>
 #endif
-
+#include "System.h"
 namespace GoombMan {
 
     void Session::add(Component* c) {
@@ -43,9 +42,6 @@ namespace GoombMan {
                     }
                 } // switch
             } // inre while
-            //SDL_SetRenderDrawColor(sys.get_ren(), 255, 255, 255, 255);
-
-    
 
             SDL_RenderClear(sys.get_ren());
             for (Component* c : comps)
@@ -60,4 +56,3 @@ namespace GoombMan {
     {
     }
 }
-

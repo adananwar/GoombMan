@@ -9,7 +9,6 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #endif
-
 using namespace std;
 
 namespace GoombMan {
@@ -22,12 +21,12 @@ namespace GoombMan {
     Label::Label(int x, int y, int w, int h,
         std::string txt) : Component(x, y, w, h), text(txt)
     {
-        SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), text.c_str(), { 170, 170, 170 });
+        SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), text.c_str(), { 50, 50, 50 });
         texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
         SDL_FreeSurface(surf);
     }
 
-    void Label::draw() const {
+    void Label::draw() {
         SDL_RenderCopy(sys.get_ren(), texture, NULL, &getRect());
     }
 

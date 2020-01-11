@@ -15,7 +15,7 @@ namespace GoombMan {
         virtual void keyDown(const SDL_Event&) {}
         virtual void keyLeft(const SDL_Event&) {}
         virtual void keyRight(const SDL_Event&) {}
-        virtual void draw() const = 0;
+        virtual void draw() = 0;
         const SDL_Rect& getRect() const { return rect; }
         SDL_Rect rect;
     protected:

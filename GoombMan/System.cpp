@@ -2,6 +2,7 @@
 #include <iostream>
 #ifdef __APPLE__
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #else
 #include <SDL.h>
 #include <SDL_image.h>
@@ -15,17 +16,15 @@ namespace GoombMan {
         TTF_Init();
         font = TTF_OpenFont("Roboto-Regular.ttf", 36);
 
-       
         SDL_SetRenderDrawColor(ren, 0, 0, 0, 255);
         SDL_RenderClear(ren);
         SDL_RenderPresent(ren);
 
-        //Update the surface
-        SDL_UpdateWindowSurface(win);
-
         SDL_Delay(300);
 
     }
+
+
 
     System::~System() {
         TTF_CloseFont(font);
@@ -47,9 +46,11 @@ namespace GoombMan {
         return windowSurf;
     }
 
+
     SDL_Texture* System::get_bgTxt() const {
         return bgTxt;
     }
+    // What does this one do?
 
     System sys;
 }

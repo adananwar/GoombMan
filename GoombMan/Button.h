@@ -17,7 +17,8 @@ namespace GoombMan {
         void keyUp(const SDL_Event&);
         void keyRight(const SDL_Event&);
         void keyLeft(const SDL_Event&);
-        void draw() const;
+        void draw();
+        void setIcon();
         virtual void perform(Button* source) {}
         Button(int x, int y, int w, int h);
         ~Button();
