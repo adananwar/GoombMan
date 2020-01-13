@@ -1,5 +1,5 @@
 #define SDL_MAIN_HANDLED
-#ifdef __APPLE__ 
+#ifdef __APPLE__
 #include <SDL2/SDL.h>
 #else
 #include <SDL.h>
@@ -8,6 +8,7 @@
 #include "Label.h"
 #include "Session.h"
 #include "Button.h"
+#include "Kebab.h"
 #include <string>
 using namespace std;
 using namespace GoombMan;
@@ -23,21 +24,16 @@ int main(int argc, const char* argv[]) {
         Label* label;
     };
 
-    class Rulle : public Kebab {
-    public:
-        Rulle(Label* lbl) :Kebab(350, 350, 40, 50), label(lbl) {}
-        void perform(Button* source) {
-        }
-    private:
-        Label* label;
-    };
 
     Session ses;
     Label* lbl = Label::getInstance(485, 11, 33, 37, "0");
     ses.add(lbl);
     Label* lb2 = Label::getInstance(400, 0, 80, 50, "Score:");
-    ses.add(lb2);
+    ses.add(lbl);
+
     Button* b = new OkaKnapp(lbl);
+    Kebab* k = new Kebab(350, 350, 40, 50);
+
     ses.add(b);
     ses.add(k);
     ses.run();
