@@ -1,5 +1,6 @@
 #include "Button.h"
 #include "System.h"
+#include "Session.h"
 #ifdef __APPLE__
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
@@ -18,11 +19,9 @@ namespace GoombMan {
         //SDL_Texture* bgTxt = SDL_CreateTextureFromSurface(sys.get_ren(), bgSurf);
         //SDL_FreeSurface(bgSurf);
 
-        
         goomba = IMG_LoadTexture(sys.get_ren(), "GoombaOne.png");
         SDL_Rect goombRect = { 0, 0, 100, 100 };
         downIcon = IMG_LoadTexture(sys.get_ren(), "GoombaTwo.png");
-         
     }
 
     Button::~Button()
@@ -37,19 +36,40 @@ namespace GoombMan {
     }
 
     void Button::keyDown(const SDL_Event& event) {
-        rect.y += 20;
+
+        if (rect.y + 20 < sys.get_windowSurf()->h - rect.h) {
+            rect.y += 20;
+        }
+        else {
+            rect.y = sys.get_windowSurf()->h - rect.h;
+        }
         setIcon();
     }
     void Button::keyUp(const SDL_Event& event) {
-        rect.y -= 20;
+        if (rect.y - 20 > 0) {
+            rect.y -= 20;
+        }
+        else {
+            rect.y = 0;
+        }
         setIcon();
     }
     void Button::keyRight(const SDL_Event& event) {
-        rect.x += 20;
+        if (rect.x + 20 < sys.get_windowSurf()->w - rect.w) {
+            rect.x += 20;
+        }
+        else {
+            rect.x = sys.get_windowSurf()->w - rect.w;
+        }
         setIcon();
     }
     void Button::keyLeft(const SDL_Event& event) {
-        rect.x -= 20;
+        if (rect.x - 20 > 0) {
+            rect.x -= 20;
+        }
+        else {
+            rect.x = 0;
+        }
         setIcon();
     }
     void Button::draw() {
