@@ -18,9 +18,11 @@ namespace GoombMan {
         //SDL_Texture* bgTxt = SDL_CreateTextureFromSurface(sys.get_ren(), bgSurf);
         //SDL_FreeSurface(bgSurf);
 
+        
         goomba = IMG_LoadTexture(sys.get_ren(), "GoombaOne.png");
         SDL_Rect goombRect = { 0, 0, 100, 100 };
         downIcon = IMG_LoadTexture(sys.get_ren(), "GoombaTwo.png");
+         
     }
 
     Button::~Button()

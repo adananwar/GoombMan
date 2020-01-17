@@ -24,10 +24,11 @@ namespace GoombMan {
 
 
         kebabIcon = IMG_LoadTexture(sys.get_ren(), "kebab.png");
-
+/*
         if (NULL == kebabIcon) {
             std::cout << "SDL could not load image! SDL Error: " << SDL_GetError() << std::endl;
         }
+ */
     }
 
     Kebab::~Kebab()
@@ -46,7 +47,6 @@ namespace GoombMan {
     void Kebab::keyUp(const SDL_Event& event) {
     }
     void Kebab::keyRight(const SDL_Event& event) {
-        rect.x += 20;
     }
     void Kebab::keyLeft(const SDL_Event& event) {
     }

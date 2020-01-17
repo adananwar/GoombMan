@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E602505C23CDBB8200C9C5DF /* Kebab.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E602505A23CDBB8100C9C5DF /* Kebab.cpp */; };
+		E602505F23CDBBB900C9C5DF /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E602505D23CDBBB900C9C5DF /* Rectangle.cpp */; };
 		E6BFB55123A28599007F590E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6BFB55023A28599007F590E /* main.cpp */; };
 		E6BFB55923A28DCF007F590E /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6BFB55723A28DCF007F590E /* Button.cpp */; };
 		E6BFB55C23A28E48007F590E /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E6BFB55A23A28E48007F590E /* Component.cpp */; };
@@ -31,6 +33,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E602505A23CDBB8100C9C5DF /* Kebab.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Kebab.cpp; sourceTree = "<group>"; };
+		E602505B23CDBB8200C9C5DF /* Kebab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kebab.h; sourceTree = "<group>"; };
+		E602505D23CDBBB900C9C5DF /* Rectangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
+		E602505E23CDBBB900C9C5DF /* Rectangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rectangle.h; sourceTree = "<group>"; };
 		E6BFB54D23A28599007F590E /* GoombMan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GoombMan; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6BFB55023A28599007F590E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		E6BFB55723A28DCF007F590E /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
@@ -86,9 +92,13 @@
 				E6BFB55823A28DCF007F590E /* Button.h */,
 				E6BFB55A23A28E48007F590E /* Component.cpp */,
 				E6BFB55B23A28E48007F590E /* Component.h */,
+				E602505A23CDBB8100C9C5DF /* Kebab.cpp */,
+				E602505B23CDBB8200C9C5DF /* Kebab.h */,
 				E6BFB55D23A28E7B007F590E /* Label.cpp */,
 				E6BFB55E23A28E7B007F590E /* Label.h */,
 				E6BFB55023A28599007F590E /* main.cpp */,
+				E602505D23CDBBB900C9C5DF /* Rectangle.cpp */,
+				E602505E23CDBBB900C9C5DF /* Rectangle.h */,
 				E6BFB56023A28EAA007F590E /* Session.cpp */,
 				E6BFB56123A28EAA007F590E /* Session.h */,
 				E6BFB56323A28ED7007F590E /* System.cpp */,
@@ -166,6 +176,8 @@
 			files = (
 				E6BFB56523A28ED7007F590E /* System.cpp in Sources */,
 				E6BFB55123A28599007F590E /* main.cpp in Sources */,
+				E602505C23CDBB8200C9C5DF /* Kebab.cpp in Sources */,
+				E602505F23CDBBB900C9C5DF /* Rectangle.cpp in Sources */,
 				E6BFB56223A28EAA007F590E /* Session.cpp in Sources */,
 				E6BFB55C23A28E48007F590E /* Component.cpp in Sources */,
 				E6BFB55F23A28E7B007F590E /* Label.cpp in Sources */,
