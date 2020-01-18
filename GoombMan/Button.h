@@ -19,7 +19,7 @@ namespace GoombMan {
         void keyLeft(const SDL_Event&);
         void draw();
         void setIcon();
-        virtual void perform(Button* source) {}
+        virtual void perform() {}
         Button(int x, int y, int w, int h);
         ~Button();
         SDL_Texture* bgTxt;

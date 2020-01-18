@@ -2,6 +2,7 @@
 #define COMPONENT_H
 #ifdef __APPLE__
 #include <SDL2/SDL.h>
+#include <vector>
 #else
 #include <SDL.h>
 #endif

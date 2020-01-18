@@ -15,7 +15,7 @@ namespace GoombMan {
         ren = SDL_CreateRenderer(win, -1, 0);
         windowSurf = SDL_GetWindowSurface(win);
 
-        std::cout << "height: " << windowSurf->h << std::endl;
+        // std::cout << "height: " << windowSurf->h << std::endl;
 
         TTF_Init();
         font = TTF_OpenFont("Roboto-Regular.ttf", 36);

@@ -15,9 +15,6 @@ namespace GoombMan {
 
     Button::Button(int x, int y, int w, int h) :Component(x, y, w, h)
     {
-        //SDL_Surface* bgSurf = IMG_Load("GoombaTwoThree.png");
-        //SDL_Texture* bgTxt = SDL_CreateTextureFromSurface(sys.get_ren(), bgSurf);
-        //SDL_FreeSurface(bgSurf);
 
         goomba = IMG_LoadTexture(sys.get_ren(), "GoombaOne.png");
         SDL_Rect goombRect = { 0, 0, 100, 100 };
@@ -37,11 +34,11 @@ namespace GoombMan {
 
     void Button::keyDown(const SDL_Event& event) {
 
-        if (rect.y + 20 < sys.get_windowSurf()->h - rect.h) {
+        if (rect.y + 20 < 600 - rect.h) {
             rect.y += 20;
         }
         else {
-            rect.y = sys.get_windowSurf()->h - rect.h;
+            rect.y = 600 - rect.h;
         }
         setIcon();
     }
@@ -55,17 +52,18 @@ namespace GoombMan {
         setIcon();
     }
     void Button::keyRight(const SDL_Event& event) {
-        if (rect.x + 20 < sys.get_windowSurf()->w - rect.w) {
+        if (rect.x + 20 < 600 - rect.w) {
             rect.x += 20;
         }
         else {
-            rect.x = sys.get_windowSurf()->w - rect.w;
+            rect.x = 600 - rect.w;
         }
         setIcon();
     }
     void Button::keyLeft(const SDL_Event& event) {
         if (rect.x - 20 > 0) {
             rect.x -= 20;
+            perform();
         }
         else {
             rect.x = 0;
