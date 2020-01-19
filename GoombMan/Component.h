@@ -5,6 +5,7 @@
 #else
 #include <SDL.h>
 #endif
+#include <vector>
 
 namespace GoombMan {
     class Component
@@ -16,10 +17,11 @@ namespace GoombMan {
         virtual void keyLeft(const SDL_Event&) {}
         virtual void keyRight(const SDL_Event&) {}
         virtual void draw() = 0;
-        const SDL_Rect& getRect() const { return rect; }
-        SDL_Rect rect;
+        virtual void handleCollision(std::vector<Component*> comps) {}
+        SDL_Rect getRect() { return rect; }
     protected:
         Component(int x, int y, int w, int h);
+        SDL_Rect rect;
     private:
         Component(const Component&) = delete;
         const Component& operator=(const Component&) = delete;

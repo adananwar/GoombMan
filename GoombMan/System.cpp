@@ -1,10 +1,12 @@
 #include "System.h"
 #include <iostream>
+#include <string>
 #ifdef __APPLE__
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #else
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include <SDL_image.h>
 #endif
 namespace GoombMan {
@@ -26,8 +28,6 @@ namespace GoombMan {
 
     }
 
-
-
     System::~System() {
         TTF_CloseFont(font);
         TTF_Quit();
@@ -48,11 +48,6 @@ namespace GoombMan {
         return windowSurf;
     }
 
-
-    SDL_Texture* System::get_bgTxt() const {
-        return bgTxt;
-    }
-    // What does this one do?
 
     System sys;
 }
