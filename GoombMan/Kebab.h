@@ -20,13 +20,12 @@ namespace GoombMan {
         void draw();
         virtual void perform(Kebab* source) {}
         Kebab(int x, int y, int w, int h);
+        void handleCollision(std::vector<Component*> comps);
         ~Kebab();
-        SDL_Texture* bgTxt;
     private:
-        SDL_Texture* goombTxt;
-        SDL_Texture* kebabIcon, * downIcon;
-        SDL_Rect goombRect;
+        SDL_Texture* kebabIcon;
         bool isDown = false;
+        void relocate();
     };
 }
 #endif

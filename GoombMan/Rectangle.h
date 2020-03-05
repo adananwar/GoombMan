@@ -13,7 +13,7 @@ namespace GoombMan {
     {
     public:
         static Rectangle* getInstance(int x, int y, int w, int h);
-        // Behövs dessa keyDown ens?
+
         void keyDown(const SDL_Event&);
         void keyUp(const SDL_Event&);
         void keyRight(const SDL_Event&);
@@ -22,15 +22,8 @@ namespace GoombMan {
         virtual void perform(Rectangle* source) {}
         Rectangle(int x, int y, int w, int h);
         ~Rectangle();
-        SDL_Texture* bgTxt;
     private:
         SDL_Texture* rectIcon;
-        // Behövs dessa?
-        SDL_Texture* goombTxt;
-        SDL_Texture* kebabIcon, * downIcon;
-        SDL_Rect goombRect;
-         
-        bool isDown = false;
     };
 }
 

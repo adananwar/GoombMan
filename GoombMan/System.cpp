@@ -1,10 +1,12 @@
 #include "System.h"
 #include <iostream>
+#include <string>
 #ifdef __APPLE__
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #else
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include <SDL_image.h>
 #endif
 namespace GoombMan {
@@ -15,7 +17,7 @@ namespace GoombMan {
         ren = SDL_CreateRenderer(win, -1, 0);
         windowSurf = SDL_GetWindowSurface(win);
 
-        // std::cout << "height: " << windowSurf->h << std::endl;
+        std::cout << "height: " << windowSurf->h << std::endl;
 
         TTF_Init();
         font = TTF_OpenFont("Roboto-Regular.ttf", 36);
@@ -25,8 +27,6 @@ namespace GoombMan {
         SDL_RenderPresent(ren);
 
     }
-
-
 
     System::~System() {
         TTF_CloseFont(font);
@@ -48,11 +48,6 @@ namespace GoombMan {
         return windowSurf;
     }
 
-
-    SDL_Texture* System::get_bgTxt() const {
-        return bgTxt;
-    }
-    // What does this one do?
 
     System sys;
 }
