@@ -14,28 +14,12 @@ namespace GoombMan {
 
     Kebab::Kebab(int x, int y, int w, int h) :Component(x, y, w, h)
     {
-        //SDL_Surface* surf = TTF_RenderText_Solid(sys.get_font(), txt.c_str(), { 0,0,0 });
-        //texture = SDL_CreateTextureFromSurface(sys.get_ren(), surf);
-        //SDL_FreeSurface(surf);
-
-        SDL_Surface* bgSurf = IMG_Load("GoombaTwoThree.png");
-        SDL_Texture* bgTxt = SDL_CreateTextureFromSurface(sys.get_ren(), bgSurf);
-        SDL_FreeSurface(bgSurf);
-
-
         kebabIcon = IMG_LoadTexture(sys.get_ren(), "kebab.png");
-/*
-        if (NULL == kebabIcon) {
-            std::cout << "SDL could not load image! SDL Error: " << SDL_GetError() << std::endl;
-        }
- */
     }
 
     Kebab::~Kebab()
     {
-        SDL_DestroyTexture(goombTxt);
         SDL_DestroyTexture(kebabIcon);
-        SDL_DestroyTexture(downIcon);
     }
 
     Kebab* Kebab::getInstance(int x, int y, int w, int h) {
@@ -50,12 +34,15 @@ namespace GoombMan {
     }
     void Kebab::keyLeft(const SDL_Event& event) {
     }
+
+    void Kebab::handleCollision(std::vector<Component*> comps) {
+        for (Component* c : comps) {
+            if (SDL_HasIntersection(&rect, &c->getRect()) && rect.x != c->getRect().x) {
+                rect.h, rect.w = 0;
+            }
+        }
+    }
     void Kebab::draw() {
-        //SDL_RenderCopy(sys.get_ren(), bgTxt, NULL, NULL);
         SDL_RenderCopy(sys.get_ren(), kebabIcon, NULL, &getRect());
-        //if (isDown)
-          //  SDL_RenderCopy(sys.get_ren(), downIcon, NULL, &getRect());
-        //else
-          //  SDL_RenderCopy(sys.get_ren(), kebabIcon, NULL, &getRect());
     }
 }
